@@ -15,28 +15,28 @@
   - **Action**: `push changes` - Use `git push` to send committed changes to the remote repository.
 
 ### Step-by-Step Guide for Students
-To accompany the diagram, here’s a brief Markdown guide you can include:
 
-```markdown
-## Understanding Git Areas
-
-### 1. Clone from Server to Local
+#### 1. Clone from Server to Local
 - Command: `git clone <repository-SSH-URL>`
 - **What Happens**: Copies the remote repository (Server) to your computer (Local).
 
-### 2. Make Changes in Local
+#### 2. Make Changes in Local
 - **Action**: Edit files in your local working directory (e.g., using Notepad or VS Code).
 - **Note**: Changes are only in your working directory until staged.
 
-### 3. Stage Changes
+#### 3. Stage Changes
 - Command: `git add <file-name>` or `git add .`
 - **What Happens**: Moves changes from the Local working directory to the Staged area.
 
-### 4. Commit Changes
+#### 4. Check your Changes
+- Command: `git status`
+- **What Happens**: The status of your changes are displayed. Files shown in green are staged and files in red have been changed, but are not staged.
+
+#### 5. Commit Changes
 - Command: `git commit -m "Your message"`
 - **What Happens**: Saves the staged changes to your Local repository, updating its history.
 
-### 5. Push Changes to Server
+#### 6. Push Changes to Server
 - Command: `git push origin main`
 - **What Happens**: Uploads your committed changes from Local back to the Server.
 
