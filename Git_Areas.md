@@ -37,7 +37,7 @@
 - **What Happens**: Saves the staged changes to your Local repository, updating its history.
 
 #### 6. Push Changes to Server
-- Command: `git push origin main`
+- Command: `git push`
 - **What Happens**: Uploads your committed changes from Local back to the Server.
 
 ### Key Concepts

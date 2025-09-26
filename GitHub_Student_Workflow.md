@@ -1,9 +1,9 @@
 # Student Guide: Creating, Cloning, Modifying, and Pushing to a GitHub Repository
 
-This guide walks you through creating a GitHub repository (or forking an existing one), cloning it to your computer, making a change, checking the change, committing it, and pushing it to GitHub. These steps assume you have:
+This guide walks you through creating your first GitHub repository, cloning it to your computer, making a change, checking the change, committing it, and pushing it to GitHub. These steps assume you have:
 - A GitHub account.
-- Git installed on Windows 11.
-- Git configured with your username, email, and an SSH key (e.g., `github-ssh`).
+- Git installed on Windows.
+- Git configured with your username and email.
 - Git Bash installed (comes with Git for Windows).
 
 ## Prerequisites
@@ -28,21 +28,10 @@ If you have not already created a GitHub account, installed git and configured g
    - Click **Create repository**.  
    - You’ll be taken to your new repository’s page (e.g., `https://github.com/your-username/my-first-repo`).
 
-### Option B: Fork an Existing Repository
-1. **Find the Instructor’s Repository**  
-   - Navigate to your instructor’s repository: `https://github.com/FixleIO/git-started`)
-
-2. **Fork the Repository**  
-   - On the repository’s page, click the **Fork** button (top-right corner).  
-   - Select your account as the destination for the fork.  
-   - This creates a copy of the repository under your GitHub account (e.g., `https://github.com/your-username/git-started`).
-
-**Choose One Option**: Create your own repository if you’re starting fresh, or fork your instructor’s repository if you’re working on their project. For the rest of this guide, we’ll refer to the repository as `git-started`.
-
 ## Step 2: Clone Your Repository to Your Computer
 
 1. **Open Git Bash**  
-   - On Windows 11, search for **Git Bash** in the Start menu and open it.
+   - On Windows, search for **Git Bash** in the Start menu and open it.
 
 2. **Navigate to Your Working Directory**  
    - Choose or create a folder on your computer to store your repository. For example:  
@@ -57,43 +46,45 @@ If you have not already created a GitHub account, installed git and configured g
 This step copies the repo from the server to your local machine. You can use either HTTPS or SSH for this step.
 
 3.a. **Copy the HTTPS Clone URL**
-   - Go to your repository on GitHub (e.g., `https://github.com/your-username/git-started.git`).  
+   - Go to your repository on GitHub (e.g., `https://github.com/your-username/my-first-repo.git`).  
    - Click the green **Code** button.  
-   - Select the **HTTPS** tab and copy the URL (e.g., `https://github.com/your-username/git-started.git`).
+   - Select the **HTTPS** tab and copy the URL (e.g., `https://github.com/your-username/my-first-repo.git`).
 
-3.b. **Copy the SSH Clone URL**  
-   - Go to your repository on GitHub (e.g., `https://github.com/your-username/git-started`).  
+3.b. **Copy the SSH Clone URL**
+Only follow this step if you configured an SSH key during the setup.
+   - Go to your repository on GitHub (e.g., `https://github.com/your-username/my-first-repo`).  
    - Click the green **Code** button.  
-   - Select the **SSH** tab and copy the URL (e.g., `git@github.com:your-username/git-started.git`).
+   - Select the **SSH** tab and copy the URL (e.g., `git@github.com:your-username/my-first-repo.git`).
 
 4. **Clone the Repository**
 This step copies the repository from the server to your local machine. You can use either HTTPS or SSH for this step
 4.a. **Clone the Repository using HTTPS**
    - In Git Bash, run:  
      ```bash
-     git clone https://github.com/your-username/git-started.git
+     git clone https://github.com/your-username/my-first-repo.git
      ```
-   - Replace `https://github.com/your-username/git-started.git` with your repository’s HTTPS URL.  
-   - This creates a folder named `git-started` in your current directory with the repository’s contents.
+   - Replace `https://github.com/your-username/my-first-repo.git` with your repository’s HTTPS URL.  
+   - This creates a folder named `my-first-repo` in your current directory with the repository’s contents.
 
 4.b. **Clone the Repository using SSH**
+This is an alternative option if you configured your SSH key.
    - In Git Bash, run:  
      ```bash
-     git clone git@github.com:your-username/git-started.git
+     git clone git@github.com:your-username/my-first-repo.git
      ```
-   - Replace `git@github.com:your-username/git-started.git` with your repository’s SSH URL.  
-   - This creates a folder named `git-started` in your current directory with the repository’s contents.
+   - Replace `git@github.com:your-username/my-first-repo.git` with your repository’s SSH URL.  
+   - This creates a folder named `my-first-repo` in your current directory with the repository’s contents.
 
 5. **Navigate into the Repository**  
    - Move into the cloned repository folder:  
      ```bash
-     cd git-started
+     cd my-first-repo
      ```
 
 ## Step 3: Make a Change
 
 1. **Open the Repository Folder**  
-   - In File Explorer, navigate to the folder where you cloned the repository (e.g., `C:\Users\YourUsername\Desktop\projects\git-started`).  
+   - In File Explorer, navigate to the folder where you cloned the repository (e.g., `C:\Users\YourUsername\Desktop\projects\my-first-repo`).  
    - Alternatively, type `explorer .` in Git Bash to open the folder.
 
 2. **Create a new File**  
@@ -110,13 +101,13 @@ This step copies the repository from the server to your local machine. You can u
 ## Step 4: Check the Change
 
 1. **Check the Repository Status**  
-   - In Git Bash, ensure you’re in the repository folder (`git-started`).  
+   - In Git Bash, ensure you’re in the repository folder (`my-first-repo`).  
    - Run:  
      ```bash
      git status
      ```
    - This shows which files have been modified or added. For example:  
-     - New files (e.g., `hello.md`) will appear under ““Untracked files.”  
+     - New files (e.g., `hello.md`) will appear under “Untracked files.”  
      - Edited files (e.g., `README.md`) will appear under "Changes not staged for commit.”
 
 2. **View the Changes**  
@@ -128,7 +119,7 @@ This step copies the repository from the server to your local machine. You can u
    - Press `q` to exit the diff view.  
    - For a specific file, use:  
      ```bash
-     git diff hello.txt
+     git diff hello.md
      ```
 
 3. **Stage the Changes**  
@@ -152,3 +143,92 @@ Send your changes from your local copy of the repository to the server.
 ```bash
   git push
 ```
+
+## Step 5: Make additional changes
+1. **Update the hello.md file**
+Now update your `hello.md` file to have the following text:
+```markdown
+# Hello World!
+
+Welcome to this fun and stylish *Hello World* markdown file! Below, you'll find a mix of common markdown styling elements to make this file pop. Let's dive in!
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [What's Next?](#whats-next)
+- [Back to Readme](#back-to-readme)
+
+---
+
+## Introduction
+This is a **bold** and _italic_ showcase of a simple *Hello World* markdown file. We're here to demonstrate some cool markdown features with a touch of flair! 🚀
+
+## Features
+Here's a quick look at what's included in this file:
+
+| Feature | Description |
+|---------|-------------|
+| Headings | Multiple levels of headings for structure. |
+| Horizontal Line | A thematic break to separate sections. |
+| Table of Contents | Easy navigation to jump between sections. |
+| Links | A handy link back to the Readme file. |
+
+> **Note**: This file is meant to be simple yet stylish, so feel free to explore and modify it!
+
+## What's Next?
+You can:
+- Add more sections to this file.
+- Experiment with additional markdown features like code blocks or images.
+- Check out the main project documentation for more details.
+
+---
+
+## Back to Readme
+For more information about the project, head back to the [Readme.md](./Readme.md) file.
+```
+2. **Check the Repository Status**  
+   - In Git Bash, ensure you’re in the repository folder (`my-first-repo`).  
+   - Run:  
+     ```bash
+     git status
+     ```
+   - This shows which files have been modified or added. For example:  
+     - New files (e.g., `hello.md`) will appear under “Untracked files.”  
+     
+3. **View the Changes**  
+   - To see the specific changes in a file, use:  
+     ```bash
+     git diff
+     ```
+   - This displays the differences (added or removed lines) in modified files.  
+   - Press `q` to exit the diff view.  
+   - For a specific file, use:  
+     ```bash
+     git diff hello.md
+     ```
+
+4. **Stage the Changes**  
+   - To prepare your changes for a commit, stage the new file:  
+     ```bash
+     git add hello.md
+     ```
+    
+   - To stage all changes at once:  
+     ```bash
+     git add .
+     ```
+5. **Commit the Changes**
+Commit the changes local copy of the repository
+```bash
+  git commit -m "Hello world updated"
+```
+
+6. **Push your local changes to the server**
+Send your changes from your local copy of the repository to the server. 
+```bash
+  git push
+```
+
+## Step 6: View your file on the server
+- Go to your repository on GitHub (e.g., `https://github.com/your-username/my-first-repo.git`).
+- Open the `hello.md` file by clicking on it

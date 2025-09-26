@@ -1,0 +1,25 @@
+@startuml
+skinparam monochrome true
+skinparam sequence {
+    ArrowColor Black
+    ActorBorderColor Black
+    LifeLineBorderColor Black
+    ParticipantBorderColor Black
+}
+
+actor "Student" as Student
+participant "Server\n(Remote Repo)" as Server
+participant "Local\n(Working Directory)" as Local
+participant "Staged\n(Index)" as Staged
+
+Student -> Server : clone
+Server -> Local : clone
+Local -> Student : make changes
+Student -> Local : make changes
+Student -> Staged : stage changes
+Student -> Staged : commit changes
+Staged -> Local : commit changes
+Student -> Local : commit changes
+Student -> Local : push changes
+Local -> Server : push changes
+@enduml
