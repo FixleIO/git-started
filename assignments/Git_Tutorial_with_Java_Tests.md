@@ -257,11 +257,6 @@ Add a note about the tests to your `README.md` to document the new feature.
    - Commit: `git commit -m "Update README with unit test instructions"`
    - Push: `git push origin main`
 
-## Why This Isn't Complicated
-- **JUnit 5 is beginner-friendly**: The `@Test` annotation and `assert` methods are easy to understand.
-- **Simple test cases**: We focused on core functionality (adding tasks, marking tasks done, handling edge cases).
-- **Manual jar setup**: Avoids complex build tools, keeping it accessible for first-year students.
-- **Git integration**: Each step reinforces Git commits and pushes, mirroring real-world workflows.
 
 ## What's Next?
 - Try adding more tests, like checking multiple tasks or edge cases.
