@@ -28,10 +28,16 @@ The following files are included in the root folder of this repository:
 3. **Practice**: Try out the commands and workflows described in the files. Experiment with the `hello.md` file to practice markdown and Git commands.
 4. **Ask Questions**: If you're stuck, check out GitHub's [official documentation](https://docs.github.com) or reach out to your instructor.
 
-## What's Next?
-After completing the materials in this repository, you'll be ready to:
-- Create and manage your own GitHub repositories.
-- Collaborate with others using branches and pull requests.
-- Contribute to open-source projects with confidence.
+## Assignments
+- [Java assignment](assignments/Git_Tutorial_with_Java_App.md)
+- [Java follow-up assigment](assignments/Git_Tutorial_with_Java_Tests.md)
+- [C# assignment](assignments/Git_Tutorial_with_CSharp_App.md)
+- [Python data science assignment](assignments/Git_Tutorial_with_Python_DataScience.md)
 
-Happy learning, and welcome to the world of GitHub! 🎉
+---
+
+## Useful links
+[Official Github cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)
+
+---
+Created by Grant Miller [grant@fixle.co](mailto:grant@fixle.co)

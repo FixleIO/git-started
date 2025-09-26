@@ -35,3 +35,6 @@ You can:
 
 ## Back to Readme
 For more information about the project, head back to the [Readme.md](./Readme.md) file.
+
+---
+Created by Grant Miller [grant@fixle.co](mailto:grant@fixle.co)
