@@ -16,12 +16,16 @@ This guide walks you through creating a simple command-line To-Do List applicati
    git clone https://github.com/your-username/csharp-todo-app.git
    cd csharp-todo-app
    ```
-3. Initialize a .NET console project:
+3. Generate a default .gitignore for your project:
+    ```
+    dotnet new gitignore
+    ```
+4. Initialize a .NET console project:
    ```
    dotnet new console
    ```
    This creates `Program.cs`, `TodoApp.csproj`, and `.vscode/` (if in VS Code).
-4. Update `Program.cs` with a basic welcome:
+5. Update `Program.cs` with a basic welcome:
    ```csharp
    using System;
 
@@ -37,14 +41,14 @@ This guide walks you through creating a simple command-line To-Do List applicati
        }
    }
    ```
-5. Build and run:
+6. Build and run:
    ```
    dotnet build
    dotnet run
    ```
    Output: "Welcome to your To-Do List App!"
 
-6. Git commit:
+7. Git commit:
    ```
    git add .
    git commit -m "Initial commit: Set up .NET console project with welcome message"
@@ -89,49 +93,49 @@ Make it interactive with a loop and Console.ReadLine.
 
 1. Update `Program.cs`:
    ```csharp
-   using System;
-   using System.Collections.Generic;
+    using System;
+    using System.Collections.Generic;
 
-   namespace TodoApp
-   {
-       class Program
-       {
-           static void Main(string[] args)
-           {
-               List<string> tasks = new List<string>();
-               Console.WriteLine("Welcome to your To-Do List App!");
+    namespace TodoApp
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                List<string> tasks = new List<string>();
+                Console.WriteLine("Welcome to your To-Do List App!");
 
-               bool running = true;
-               while (running)
-               {
-                   Console.WriteLine("\nOptions: 1. Add task  2. View tasks  3. Exit");
-                   Console.Write("Choose: ");
-                   string choice = Console.ReadLine();
+                bool running = true;
+                while (running)
+                {
+                    Console.WriteLine("\nOptions: 1. Add task  2. View tasks  3. Exit");
+                    Console.Write("Choose: ");
+                    string choice = Console.ReadLine() ?? ""; // Default to empty string if null
 
-                   if (choice == "1")
-                   {
-                       Console.Write("Enter task: ");
-                       string task = Console.ReadLine();
-                       tasks.Add(task);
-                       Console.WriteLine("Task added!");
-                   }
-                   else if (choice == "2")
-                   {
-                       Console.WriteLine($"Current tasks: {string.Join(", ", tasks)}");
-                   }
-                   else if (choice == "3")
-                   {
-                       running = false;
-                   }
-                   else
-                   {
-                       Console.WriteLine("Invalid choice.");
-                   }
-               }
-               Console.WriteLine("Goodbye!");
-           }
-       }
-   }
+                    if (choice == "1")
+                    {
+                        Console.Write("Enter task: ");
+                        string task = Console.ReadLine() ?? ""; // Default to empty string if null
+                        tasks.Add(task);
+                        Console.WriteLine("Task added!");
+                    }
+                    else if (choice == "2")
+                    {
+                        Console.WriteLine($"Current tasks: {string.Join(", ", tasks)}");
+                    }
+                    else if (choice == "3")
+                    {
+                        running = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice.");
+                    }
+                }
+                Console.WriteLine("Goodbye!");
+            }
+        }
+    }
    ```
 2. Test by adding/viewing tasks.
 
@@ -147,63 +151,70 @@ Mark tasks as done by appending "[DONE]". Number tasks for selection.
 
 1. Update `Program.cs`:
    ```csharp
-   using System;
-   using System.Collections.Generic;
+    using System;
+    using System.Collections.Generic;
 
-   namespace TodoApp
-   {
-       class Program
-       {
-           static void Main(string[] args)
-           {
-               List<string> tasks = new List<string>();
-               Console.WriteLine("Welcome to your To-Do List App!");
+    namespace TodoApp
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                List<string> tasks = new List<string>();
+                Console.WriteLine("Welcome to your To-Do List App!");
 
-               bool running = true;
-               while (running)
-               {
-                   Console.WriteLine("\nOptions: 1. Add task  2. View tasks  3. Mark done  4. Exit");
-                   Console.Write("Choose: ");
-                   string choice = Console.ReadLine();
+                bool running = true;
+                while (running)
+                {
+                    Console.WriteLine("\nOptions: 1. Add task  2. View tasks  3. Mark done  4. Exit");
+                    Console.Write("Choose: ");
+                    string choice = Console.ReadLine() ?? ""; // Default to empty string if null
 
-                   if (choice == "1")
-                   {
-                       Console.Write("Enter task: ");
-                       tasks.Add(Console.ReadLine());
-                       Console.WriteLine("Task added!");
-                   }
-                   else if (choice == "2")
-                   {
-                       if (tasks.Count == 0) Console.WriteLine("No tasks.");
-                       else
-                       {
-                           for (int i = 0; i < tasks.Count; i++)
-                           {
-                               Console.WriteLine($"{i + 1}. {tasks[i]}");
-                           }
-                       }
-                   }
-                   else if (choice == "3")
-                   {
-                       Console.Write("Task number: ");
-                       if (int.TryParse(Console.ReadLine(), out int num) && num > 0 && num <= tasks.Count)
-                       {
-                           int index = num - 1;
-                           tasks[index] += " [DONE]";
-                           Console.WriteLine("Marked done!");
-                       }
-                       else
-                       {
-                           Console.WriteLine("Invalid number.");
-                       }
-                   }
-                   else if (choice == "4") running = false;
-                   else Console.WriteLine("Invalid.");
-               }
-               Console.WriteLine("Goodbye!");
-           }
-       }
-   }
+                    if (choice == "1")
+                    {
+                        Console.Write("Enter task: ");
+                        string task = Console.ReadLine() ?? ""; // Default to empty string if null
+                        tasks.Add(task);
+                        Console.WriteLine("Task added!");
+                    }
+                    else if (choice == "2")
+                    {
+                        if (tasks.Count == 0) Console.WriteLine("No tasks.");
+                        else
+                        {
+                            for (int i = 0; i < tasks.Count; i++)
+                            {
+                                Console.WriteLine($"{i + 1}. {tasks[i]}");
+                            }
+                        }
+                    }
+                    else if (choice == "3")
+                    {
+                        Console.Write("Task number: ");
+                        if (int.TryParse(Console.ReadLine() ?? "", out int num) && num > 0 && num <= tasks.Count)
+                        {
+                            int index = num - 1;
+                            tasks[index] += " [DONE]";
+                            Console.WriteLine("Marked done!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid number.");
+                        }
+                    }
+                    else if (choice == "4")
+                    {
+                        running = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice.");
+                    }
+                }
+                Console.WriteLine("Goodbye!");
+            }
+        }
+    }
    ```
 2. Test functionality.
 
@@ -255,64 +266,64 @@ Create `TaskManager.cs` to separate logic.
 
    Full updated `Program.cs`:
    ```csharp
-   using System;
+    using System;
 
-   namespace TodoApp
-   {
-       class Program
-       {
-           static void Main(string[] args)
-           {
-               TaskManager taskManager = new TaskManager();
-               Console.WriteLine("Welcome to your To-Do List App!");
+    namespace TodoApp
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                TaskManager taskManager = new TaskManager();
+                Console.WriteLine("Welcome to your To-Do List App!");
 
-               bool running = true;
-               while (running)
-               {
-                   Console.WriteLine("\nOptions: 1. Add task  2. View tasks  3. Mark done  4. Exit");
-                   Console.Write("Choose: ");
-                   string choice = Console.ReadLine();
+                bool running = true;
+                while (running)
+                {
+                    Console.WriteLine("\nOptions: 1. Add task  2. View tasks  3. Mark done  4. Exit");
+                    Console.Write("Choose: ");
+                    string choice = Console.ReadLine() ?? "";
 
-                   if (choice == "1")
-                   {
-                       Console.Write("Enter task: ");
-                       taskManager.AddTask(Console.ReadLine());
-                       Console.WriteLine("Task added!");
-                   }
-                   else if (choice == "2")
-                   {
-                       var tasks = taskManager.GetTasks();
-                       if (tasks.Count == 0) Console.WriteLine("No tasks.");
-                       else
-                       {
-                           for (int i = 0; i < tasks.Count; i++)
-                           {
-                               Console.WriteLine($"{i + 1}. {tasks[i]}");
-                           }
-                       }
-                   }
-                   else if (choice == "3")
-                   {
-                       Console.Write("Task number: ");
-                       if (int.TryParse(Console.ReadLine(), out int num) && num > 0 && num <= taskManager.TaskCount)
-                       {
-                           if (taskManager.MarkTaskDone(num - 1))
-                               Console.WriteLine("Marked done!");
-                           else
-                               Console.WriteLine("Invalid.");
-                       }
-                       else
-                       {
-                           Console.WriteLine("Invalid number.");
-                       }
-                   }
-                   else if (choice == "4") running = false;
-                   else Console.WriteLine("Invalid.");
-               }
-               Console.WriteLine("Goodbye!");
-           }
-       }
-   }
+                    if (choice == "1")
+                    {
+                        Console.Write("Enter task: ");
+                        taskManager.AddTask(Console.ReadLine() ?? "");
+                        Console.WriteLine("Task added!");
+                    }
+                    else if (choice == "2")
+                    {
+                        var tasks = taskManager.GetTasks();
+                        if (tasks.Count == 0) Console.WriteLine("No tasks.");
+                        else
+                        {
+                            for (int i = 0; i < tasks.Count; i++)
+                            {
+                                Console.WriteLine($"{i + 1}. {tasks[i]}");
+                            }
+                        }
+                    }
+                    else if (choice == "3")
+                    {
+                        Console.Write("Task number: ");
+                        if (int.TryParse(Console.ReadLine() ?? "", out int num) && num > 0 && num <= taskManager.TaskCount)
+                        {
+                            if (taskManager.MarkTaskDone(num - 1))
+                                Console.WriteLine("Marked done!");
+                            else
+                                Console.WriteLine("Invalid.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid number.");
+                        }
+                    }
+                    else if (choice == "4") running = false;
+                    else Console.WriteLine("Invalid.");
+                }
+                Console.WriteLine("Goodbye!");
+            }
+        }
+    }
    ```
 3. Build and run to confirm.
 
@@ -330,10 +341,15 @@ Create a test project for `TaskManager`.
    ```
    dotnet new xunit -o TodoApp.Tests
    cd TodoApp.Tests
-   dotnet add reference ../TodoApp.csproj
+   dotnet add reference ..\csharp-todo-app.csproj
+   dotnet add package Microsoft.NET.Test.Sdk
+   dotnet add package xunit
+   dotnet add package xunit.runner.visualstudio
+   dotnet add package coverlet.collector
+   dotnet add package Newtonsoft.Json
    cd ..
    dotnet add TodoApp.Tests package xunit
-   dotnet add TodoApp.Tests package xunit.runner.visualstudio
+   dotnet add package Newtonsoft.Json
    ```
    (Note: xunit is included by default in new xunit project; this ensures.)
 
@@ -382,7 +398,10 @@ Create a test project for `TaskManager`.
    }
    ```
 3. Run tests:
+   
    ```
+   cd TodoApp.Tests/
+   dotnet clean
    dotnet test
    ```
    All 4 tests should pass.
@@ -401,6 +420,8 @@ Add to your `README.md`:
 dotnet run
 
 ## Running Tests
+cd TodoApp.Tests/
+dotnet clean
 dotnet test
 ```
 
@@ -411,11 +432,54 @@ git commit -m "Update README with run and test instructions"
 git push origin main
 ```
 
-## Why This Setup?
-- **.NET CLI is simple**: No IDE needed; commands are straightforward.
-- **xUnit is beginner-friendly**: Uses `[Fact]` for tests and `Assert` methods.
-- **Project structure**: Encourages good practices; tests are separate.
-- **Git integration**: Commits track progress.
+## Testing library errors with dotnet 9
+If you experience build and testing issues with dotnet 9, you can reference these project files to assist.
+csharp-todo-app.csproj
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>csharp_todo_app</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+  </ItemGroup>
+</Project>
+```
+
+TodoApp.Tests.csproj
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\csharp-todo-app.csproj" />
+  </ItemGroup>
+</Project>
+```
+
 
 ## Next Steps
 - Add more tests or features (e.g., delete tasks).

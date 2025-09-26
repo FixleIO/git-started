@@ -254,11 +254,6 @@ git push origin main
 - Pre-installs data science staples like pandas, numpy.
 - Alternative: Use `python -m venv ds-env` and `pip install pandas matplotlib scikit-learn pytest`, but conda is more DS-friendly for reproducibility.
 
-## Why This Project?
-- Relevant to DS: Data loading, analysis, viz—core skills.
-- Simple: No ML models yet; build confidence.
-- Testable: Functions are pure, easy to unit test.
-- Git-friendly: Incremental changes mimic real DS workflows (e.g., experimenting with data).
 
 ## Next Steps
 - Add more viz (scatter plots) or ML (simple classification).
