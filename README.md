@@ -1,2 +1,3 @@
 # git-started
-A git training repo
+This is an introduction course to 'gittin' started with git.
+
