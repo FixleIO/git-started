@@ -130,7 +130,23 @@
      ```
      ssh -T git@github.com
      ```  
-     - If successful, you'll see a message like: `Hi username! You've successfully authenticated...`
+   - If successful, you'll see a message like: `Hi username! You've successfully authenticated...`
+
+   - If you get a permissions error on your SSH key, you can fix it in powershell by doing the following:
+     Correct the permissions on your private key:
+     ```powershell
+     cd ~/.ssh
+     icacls "github-ssh" /inheritance:r
+     icacls "github-ssh" /grant:r "%username%:RW"
+     ```  
+
+     Correct the permissions on your public key:
+     ```powershell
+     cd ~/.ssh
+     icacls "github-ssh.pub" /inheritance:r
+     icacls "github-ssh.pub" /grant:r "%username%:RW"
+     icacls "github-ssh.pub" /grant:r "Everyone:R"
+     ```
 
 ## Next Steps
 - You now have a GitHub account, Git installed on your Windows machine, and your initial Git configuration set up.  

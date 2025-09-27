@@ -17,13 +17,14 @@ To write unit tests, we need JUnit 5. For simplicity, we'll manually download th
    ```
 
 2. Download the following JUnit 5 jars (as of September 2025, use the latest stable versions):
-   - [JUnit Platform Console Standalone](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.10.2/junit-platform-console-standalone-1.10.2.jar) (or check for newer versions at [Maven Central](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/)).
-   - Save it in the `lib` folder as `junit-platform-console-standalone.jar`.
+   - [JUnit Platform Console Standalone](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.13.4/junit-platform-console-standalone-1.13.4.jar) (or check for newer versions at [Maven Central](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/)).
+   - Save it in the `lib` folder as `junit-platform-console-standalone.jar`. Remember to remove the version
 
 3. Add the `lib` folder to Git (we'll commit it later to share dependencies):
    ```
-   git add lib
+   git add lib -f
    ```
+   You will probably need to tell Git to `force` add the jar file because the .gitignore is configured to ignore `.jar` files. 
 
 ## Step 2: Refactor TodoApp for Testability
 To make testing easier, we'll separate the task management logic from the user interface. We'll create a `TaskManager` class to handle tasks and update `TodoApp` to use it.
@@ -167,14 +168,45 @@ Now, let's create tests for `TaskManager`. We'll test adding tasks and marking t
 
 2. Compile the test file (include the JUnit jar):
    ```
-   javac -cp .:lib/junit-platform-console-standalone.jar TaskManagerTest.java TaskManager.java
+   javac -cp .\lib\junit-platform-console-standalone.jar .\TaskManagerTest.java .\TaskManager.java
    ```
 
 3. Run the tests:
    ```
-   java -jar lib/junit-platform-console-standalone.jar --class-path . --scan-classpath
+   java -jar .\lib\junit-platform-console-standalone.jar --class-path . --scan-classpath
    ```
-   You should see output indicating all tests passed (3 tests in this case).
+   You should see output indicating all tests passed (3 tests in this case). Here is example output:
+   ```
+   Thanks for using JUnit! Support its development at https://junit.org/sponsoring
+
+    .
+    +-- JUnit Platform Suite [OK]
+    +-- JUnit Jupiter [OK]
+    | '-- TaskManagerTest [OK]
+    |   +-- testMarkTaskDone() [OK]
+    |   +-- testAddTask() [OK]
+    |   '-- testMarkTaskDoneInvalidIndex() [OK]
+    '-- JUnit Vintage [OK]
+
+    Test run finished after 147 ms
+    [         4 containers found      ]
+    [         0 containers skipped    ]
+    [         4 containers started    ]
+    [         0 containers aborted    ]
+    [         4 containers successful ]
+    [         0 containers failed     ]
+    [         3 tests found           ]
+    [         0 tests skipped         ]
+    [         3 tests started         ]
+    [         0 tests aborted         ]
+    [         3 tests successful      ]
+    [         0 tests failed          ]
+
+
+    WARNING: Delegated to the 'execute' command.
+            This behaviour has been deprecated and will be removed in a future release.
+            Please use the 'execute' command directly.
+   ```
 
 4. Commit the test file:
    - Stage: `git add TaskManagerTest.java lib/junit-platform-console-standalone.jar`
@@ -226,8 +258,8 @@ Let's add one more test to check the empty task list case.
 
 2. Compile and run tests again:
    ```
-   javac -cp .:lib/junit-platform-console-standalone.jar TaskManagerTest.java TaskManager.java
-   java -jar lib/junit-platform-console-standalone.jar --class-path . --scan-classpath
+   javac -cp .\lib\junit-platform-console-standalone.jar .\TaskManagerTest.java .\TaskManager.java
+   java -jar .\lib\junit-platform-console-standalone.jar --class-path . --scan-classpath
    ```
    Now, 4 tests should pass.
 
@@ -248,8 +280,8 @@ Add a note about the tests to your `README.md` to document the new feature.
 
    ## Running Unit Tests
    To run the unit tests, ensure you have the JUnit 5 jar in the `lib` folder. Then:
-   1. Compile: `javac -cp .:lib/junit-platform-console-standalone.jar TaskManagerTest.java TaskManager.java`
-   2. Run: `java -jar lib/junit-platform-console-standalone.jar --class-path . --scan-classpath`
+   1. Compile: `javac -cp .\lib\junit-platform-console-standalone.jar .\TaskManagerTest.java .\TaskManager.java`
+   2. Run: `java -jar .\lib\junit-platform-console-standalone.jar --class-path . --scan-classpath`
    ```
 
 2. Commit and push:
@@ -261,7 +293,5 @@ Add a note about the tests to your `README.md` to document the new feature.
 ## What's Next?
 - Try adding more tests, like checking multiple tasks or edge cases.
 - Experiment with a test that fails to see how JUnit reports errors.
-- Explore [GitHub_Student_Workflow.md](./GitHub_Student_Workflow.md) to collaborate on tests with others.
-- For advanced students, consider introducing Maven or Gradle for dependency management (but keep it optional).
 
 Check your GitHub repo to see all your commits! You're now testing like a pro. 🎉

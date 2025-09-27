@@ -1,22 +1,29 @@
 # Git Tutorial: Building a Simple Java To-Do List App
 
-This guide will walk you through creating a simple command-line To-Do List application in Java while learning Git basics. You'll make incremental changes to the code, commit them regularly, and push to GitHub to save your progress on the server. This is designed for first-year college students, so we'll keep the Java code straightforward but build it step by step to add features.
+This guide will walk you through creating a simple command-line To-Do List application in Java while learning Git basics. You'll make incremental changes to the code, commit them regularly, and push to GitHub to save your progress on the server. This focuses on git, so we'll keep the Java code straightforward but build it step by step to add features.
 
 ## Prerequisites
-- You've set up your GitHub account and Git on your local machine. Refer to [GitHub_Setup_Instructions.md](./GitHub_Setup_Instructions.md) if needed.
-- You understand basic Git areas (working directory, staging, repository). See [Git_Areas.md](./Git_Areas.md).
+- You've set up your GitHub account and Git on your local machine. Refer to [GitHub_Setup_Instructions.md](../GitHub_Setup_Instructions.md) if needed.
+- You understand basic Git areas (working directory, staging, repository). See [Git_Areas.md](../Git_Areas.md).
+- You worked through the the basic Git workflow. See [GitHub_Student_Workflow.md](../GitHub_Student_Workflow.md)
 - Basic Java knowledge: classes, methods, loops, and input/output.
 - A code editor like VS Code or IntelliJ IDEA Community Edition.
 - Java Development Kit (JDK) installed (version 8 or higher).
 
-We'll use a student workflow for Git. For more on that, check [GitHub_Student_Workflow.md](./GitHub_Student_Workflow.md).
-
 ## Step 1: Set Up Your Repository
-1. Go to GitHub and create a new repository called `java-todo-app`. Make it public or private as you prefer, and initialize it with a README.md file.
+1. Go to GitHub and create a new repository called `java-todo-app`. 
+    - Make it public or private as you prefer.
+    - Initialize it with a README.md file.
+    - Add a .gitignore file and select `Java`. [More information about .gitignore](https://docs.github.com/en/get-started/git-basics/ignoring-files)
 2. On your local machine, open a terminal or command prompt.
 3. Clone the repository:
+   Remember to replace `your-username` with your actual GitHub username. Or just copy the URL from GitHub using the green `Code` button.
    ```
    git clone https://github.com/your-username/java-todo-app.git
+   ```
+   Or if you have installed your SSH key for GitHub then you can clone it:
+   ```
+   git clone git@github.com:your-username/java-todo-app.git
    ```
 4. Navigate into the folder:
    ```
@@ -210,6 +217,6 @@ Let's add the ability to mark tasks as done. We'll modify tasks to include a sta
 
 This app is now a functional To-Do List! You've learned to use Git for tracking changes with commits and pushes. For practice, try adding more features like deleting tasks, then commit and push those too.
 
-If you want to collaborate, fork someone else's repo and submit a pull request—see [GitHub_Student_Workflow.md](./GitHub_Student_Workflow.md).
+If you want to add unit tests please try [the next Java tutorial](Git_Tutorial_with_Java_Tests.md)
 
 Happy coding and versioning! 🚀

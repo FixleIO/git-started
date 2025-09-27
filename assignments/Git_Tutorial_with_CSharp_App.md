@@ -20,6 +20,8 @@ This guide walks you through creating a simple command-line To-Do List applicati
     ```
     dotnet new gitignore
     ```
+    [More information about .gitignore](https://docs.github.com/en/get-started/git-basics/ignoring-files)
+    
 4. Initialize a .NET console project:
    ```
    dotnet new console
