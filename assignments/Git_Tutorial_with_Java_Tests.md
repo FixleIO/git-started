@@ -274,6 +274,8 @@ Add a note about the tests to your `README.md` to document the new feature.
 1. Edit `README.md` (append to the "Repository Contents" section or add a new section):
 
    ```markdown
+   [Instructions for setting up tets in this repo](https://github.com/FixleIO/git-started/blob/main/assignments/Git_Tutorial_with_Java_Tests.md)
+
    ## Repository Contents
    ...
    | [TaskManagerTest.java](./TaskManagerTest.java) | Unit tests for the TaskManager class using JUnit 5. |

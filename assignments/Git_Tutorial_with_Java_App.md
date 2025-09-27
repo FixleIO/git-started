@@ -210,7 +210,25 @@ Let's add the ability to mark tasks as done. We'll modify tasks to include a sta
    - Commit: `git commit -m "Add feature to mark tasks as done and improve view with numbering"`
    - Push: `git push origin main`
 
-## Step 6: Final Touches and Review
+## Step 6: Update README
+Add a note about the tests to your `README.md` to document the new feature.
+
+1. Edit `README.md` (append to the "Repository Contents" section or add a new section):
+
+   ```markdown
+   [Instructions for setting up this repo](https://github.com/FixleIO/git-started/blob/main/assignments/Git_Tutorial_with_Java_App.md)
+
+   ## Compile and run
+   javac TodoApp.java
+   java TodoApp
+   ```
+
+2. Commit and push:
+   - Stage: `git add README.md`
+   - Commit: `git commit -m "Update README with compile and run instructions"`
+   - Push: `git push origin main`
+
+## Step 7: Final Touches and Review
 - Run the app again to ensure everything works.
 - Use `git log` to see your commit history.
 - On GitHub, browse your repo to view the changes over time.

@@ -3,22 +3,32 @@
 This guide walks data science students through creating a basic data analysis project in Python while practicing Git. We'll build a script that loads a dataset (using the built-in Iris dataset), performs summary statistics, and generates visualizations with pandas and matplotlib. It's designed for first-year data science students, using core libraries. We'll commit incrementally and add unit tests with pytest. This reinforces Git workflows for collaborative data projects.
 
 ## Prerequisites
-- GitHub account and Git installed ([GitHub_Setup_Instructions.md](./GitHub_Setup_Instructions.md)).
-- Python 3.8+ installed. For data science, we recommend **Miniconda** (lighter than full Anaconda) to manage environments and packages. Download from [docs.conda.io/miniconda](https://docs.conda.io/en/latest/miniconda.html). Why? It handles dependencies like pandas/numpy easily without conflicts.
+- You've set up your GitHub account and Git on your local machine. Refer to [GitHub_Setup_Instructions.md](../GitHub_Setup_Instructions.md) if needed.
+- You understand basic Git areas (working directory, staging, repository). See [Git_Areas.md](../Git_Areas.md).
+- You worked through the the basic Git workflow. See [GitHub_Student_Workflow.md](../GitHub_Student_Workflow.md)
+- Python 3.8+ installed. For data science, we recommend **Miniconda** (lighter than full Anaconda) to manage environments and packages. Download from [docs.conda.io/miniconda](https://docs.conda.io/en/latest/miniconda.html). Why? It handles dependencies like pandas/numpy easily without conflicts. If you do not have Miniconda configured, you can follow [this guide](Git_Python_Miniconda.md).
 - Basic Python knowledge: functions, imports, data structures.
 - Code editor like VS Code with Python extension.
-- Follow [Git_Areas.md](./Git_Areas.md) and [GitHub_Student_Workflow.md](./GitHub_Student_Workflow.md).
 
 If using Miniconda:
-1. Install and create an environment: `conda create -n ds-git python=3.11`
+1. Install and create an environment: `conda create -n ds-git python=3.13`
 2. Activate: `conda activate ds-git`
 3. Install packages: `conda install pandas matplotlib scikit-learn pytest` (or `pip install` if preferred).
 
 ## Step 1: Set Up Your Repository and Initial Script
 1. Create a GitHub repo called `python-ds-analysis`.
+    - Make it public or private as you prefer.
+    - Initialize it with a README.md file.
+    - Add a .gitignore file and select `Python`. [More information about .gitignore](https://docs.github.com/en/get-started/git-basics/ignoring-files)
 2. Clone locally:
+Remember to replace `your-username` with your _actual_ GitHub username.
    ```
    git clone https://github.com/your-username/python-ds-analysis.git
+   cd python-ds-analysis
+   ```
+   Alternativerly, clone using SSH, if you configured your SSH key with GitHub:
+   ```
+   git clone git@github.com:your-username/python-ds-analysis.git
    cd python-ds-analysis
    ```
 3. Create `analysis.py` with basic imports and load data:
@@ -234,9 +244,12 @@ Test stats on subset data.
 ## Step 7: Update README
 Add to `README.md`:
 ```
+[Instructions for setting up this repo](https://github.com/FixleIO/git-started/blob/main/assignments/Git_Tutorial_with_Python_DataScience.md)
+
 ## Running the Analysis
 conda activate ds-git  # or your env
 python analysis.py
+
 
 ## Running Tests
 pytest test_data_utils.py -v
@@ -258,7 +271,6 @@ git push origin main
 ## Next Steps
 - Add more viz (scatter plots) or ML (simple classification).
 - Use `git log` to review; branch for experiments.
-- Collaborate: Fork and PR ([GitHub_Student_Workflow.md](./GitHub_Student_Workflow.md)).
 - For real data: Add a `data/` folder with CSV; commit sample files.
 
 Check GitHub for your commits! 🚀
