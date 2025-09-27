@@ -111,6 +111,36 @@ Miniconda uses environments to isolate Python versions and packages, preventing 
 - **Minimal Installer**: Includes only conda, Python, and essential packages (e.g., pip, zlib) for a lightweight setup.
 - **Cloud Backup**: Connect to Anaconda’s community portal via Navigator to back up environments (requires an account).
 
+
+## Miniconda with Visual Studio Code
+This is a quick guide to using miniconda in Visual Studio Code.
+
+### Step 1: Install the Python Extension in VS Code
+
+Open VS Code.
+Go to the Extensions view (click the Extensions icon in the sidebar or press `Ctrl+Shift+X` / `Cmd+Shift+X` on macOS).
+Search for "Python" (published by Microsoft).
+Install it. This extension enables Python support, including Conda environment detection.
+
+### Step 2: Configure VS Code to Recognize Miniconda
+
+Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
+Type and select Python: `Select Interpreter`.
+VS Code will scan for available interpreters, including those from Miniconda (e.g., in `~/miniconda3/bin/python` on macOS/Linux or `C:\Users\<YourUser>\miniconda3\python.exe` on Windows).
+Select the desired interpreter (start with the base one if you're unsure).
+
+![Select the python interpreter from conda folder](images/Select_Python_interpreter.png)
+
+#### If Miniconda doesn't appear automatically
+Configure the Python settings in VS Code:
+File > Preferences > Settings > Extensions > Python
+Update the following:
+- **Default Interpreter Path** set to `C:\Users\<YourUser>\miniconda3\python.exe` (or `~/miniconda3/bin/python` on macOS/Linux)
+- **Python: Conda Path** set to `C:\Users\<YourUser>\miniconda3\` (or `~/miniconda3/bin/` on macOS/Linux)
+
+I found that powershell terminal in VS Code does not detect correctly. However, using Windows `Command` does. The `Command` prompt can be activated by using the small + on the top right of the Terminal screen. Here is a small screensho to explain this:
+![Miniconda use cmd to use environment](images/Conda_use_cmd.png) 
+
 ## Additional Resources
 - [Miniconda Documentation](https://docs.conda.io/en/latest/miniconda.html)
 - [Anaconda Community Portal](https://www.anaconda.com/)

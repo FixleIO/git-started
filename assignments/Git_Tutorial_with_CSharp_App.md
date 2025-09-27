@@ -486,6 +486,5 @@ TodoApp.Tests.csproj
 ## Next Steps
 - Add more tests or features (e.g., delete tasks).
 - Use `git log` to review history.
-- Collaborate via forks/PRs ([GitHub_Student_Workflow.md](./GitHub_Student_Workflow.md)).
 
 Check GitHub for your evolving repo! 🚀
